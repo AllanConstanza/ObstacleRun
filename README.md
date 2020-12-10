@@ -1,2 +1,2 @@
 # ObstacleRun
-This is an amazing app
+In our game, the player has to avoid moving obstacles across the screen in order to move to the next level
