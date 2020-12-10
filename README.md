@@ -1,2 +1,2 @@
 # ObstacleRun
-This is an amazing app deez
+This is an amazing app
