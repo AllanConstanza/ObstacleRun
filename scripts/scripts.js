@@ -1,19 +1,19 @@
 MyApp = {
 
     
-    obstacles: [],
-    playerImages: [],
+  obstacles: [],
+  playerImages: [],
 
-    createPlayer: function(){
+  createPlayer: function(){
 
-      
-    },
+    
+  },
 
-    createObstacle: function () {
+  createObstacle: function () {
 
 
-    },
-  
+  },
+
   
 
 
