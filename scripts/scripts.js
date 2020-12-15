@@ -1,8 +1,27 @@
 MyApp = {
 
-  init: function() {
-  //I made an edit- Rios//
+    
+    obstacles: [],
+    playerImages: [],
+
+    createPlayer: function(){
+
+      
+    },
+
+    createObstacle: function () {
+
+
+    },
+  
+  
+
+
+    init: function () {
+    
+    }
+
+
   }
-}
 
 MyApp.init();
