@@ -1,12 +1,15 @@
-MyApp = {
+Obstaclerun = {
 
-    
+  init: function () {
+
+  },
+
   obstacles: [],
   playerImages: [],
 
-  createPlayer: function(){
+  createPlayer: function () {
 
-    
+
   },
 
   createObstacle: function () {
@@ -14,14 +17,10 @@ MyApp = {
 
   },
 
-  
+  timer: function () {
 
 
-    init: function () {
-    
-    }
+  },
+}
 
-
-  }
-
-MyApp.init();
+Obstaclerun.init();
