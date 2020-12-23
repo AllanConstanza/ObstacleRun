@@ -1,17 +1,38 @@
 
-.obstaclerun_container {
-    display: flex;
+html { 
+    margin: 0; 
+    padding: 0; 
+}
+
+body { 
+    font-family: sans-serif;
+}
+
+#obstacle_run {
+    background: url(https://i.pinimg.com/originals/d4/05/06/d40506d2c691b53284269f7c2cf44151.png);
+
+}
+
+#obstaclerun_container {
+    display: relative;
     justify-content: center;
     border: 1px solid black;
     border-radius: 0px;
-    width:1250px;
+    width:1260px;
     height:550px;
-    margin: auto;    
-    
+    margin: auto;  
 }
-body {
-    background-image: url(https://i.pinimg.com/originals/d4/05/06/d40506d2c691b53284269f7c2cf44151.png);
-    background-size:cover;
-  }
+
+
+  .obstacle {
+    height: 10px;
+    width: 10px;
+    background-color: grey;
+    border: 1px solid grey;
+    border-radius: 5px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
 
 
