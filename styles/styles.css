@@ -9,5 +9,9 @@
     margin: auto;    
     
 }
+body {
+    background-image: url(https://i.pinimg.com/originals/d4/05/06/d40506d2c691b53284269f7c2cf44151.png);
+    background-size:cover;
+  }
 
 
