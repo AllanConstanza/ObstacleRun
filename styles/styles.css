@@ -6,22 +6,34 @@ html {
 
 body { 
     font-family: sans-serif;
+    background-color: rgb(75, 165, 201);
 }
 
 #obstacle_run {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 900px;
+    height: 600px;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 10px;
     background: url(https://i.pinimg.com/originals/d4/05/06/d40506d2c691b53284269f7c2cf44151.png);
-
+    margin: auto;
 }
 
 #obstaclerun_container {
+    width: 899px;
+    height: 590px;
+    border: 1px solid rgb(201, 156, 98);
+    border-radius: 10px;
+    position: relative;
+    margin: auto;
     display: relative;
-    justify-content: center;
-    border: 1px solid black;
-    border-radius: 0px;
-    width:1260px;
-    height:550px;
-    margin: auto;  
+   
+
 }
+
+
 
 
   .obstacle {
