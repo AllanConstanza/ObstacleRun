@@ -35,7 +35,7 @@ body {
   .obstacle {
     height: 50px;
     width: 50px;
-    background: url("http://www.pngmart.com/files/5/Shark-PNG-Photo.png");
+    background: url(http://www.pngmart.com/files/5/Shark-PNG-Photo.png);
     position: absolute;
     top: 0px;
     left: 0px;
