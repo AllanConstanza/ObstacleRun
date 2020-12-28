@@ -33,17 +33,14 @@ body {
 
 }
   .obstacle {
-    height: 500px;
-    width: 500px;
-    background: url(http://www.pngmart.com/files/5/Shark-PNG-Photo.png);
+    height: 30px;
+    width: 30px;
+    background: url(https://thumbs.dreamstime.com/b/shark-design-blue-background-shark-design-blue-background-black-combination-172537215.jpg);
     position: absolute;
     top: 0px;
     left: 0px;
 }
 
-.button {
-    margin: auto;
-    padding: 10px;
-}
+
 
 
