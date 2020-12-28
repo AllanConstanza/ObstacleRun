@@ -33,9 +33,9 @@ body {
 
 }
   .obstacle {
-    height: 160px;
-    width: 260px;
-    background: url(https://s.clipartkey.com/mpngs/s/26-260989_shark-clipart-simple-cartoon-shark-transparent-background.png);
+    height: 100px;
+    width: 100px;
+    background: url(https://thumbs.dreamstime.com/b/shark-design-blue-background-shark-design-blue-background-black-combination-172537215.jpg);
     position: absolute;
     top: 0px;
     left: 0px;

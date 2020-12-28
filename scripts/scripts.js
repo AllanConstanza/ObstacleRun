@@ -54,7 +54,7 @@ Obstaclerun = {
     obstaclediv.className = "obstacle";
     this.container.append(obstaclediv);
     let obstacle = {
-      x_pos: Math.random() * 700,
+      x_pos: Math.random() * 400,
       y_pos:  Math.random() * 400 ,
       x_velocity: Math.random() * 10 - 1,
       y_velocity:Math.random() * 10 - 1,
