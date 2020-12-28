@@ -50,6 +50,13 @@ Obstaclerun = {
 
 
   },
+  startGame: function (){
+
+  },
+  endGame: function() {
+
+  },
+  
   render:function() {
     for(let i = 0; i <1; i++){
       this.player[i].element.style.top = this.people[i].y_pos + "px"
