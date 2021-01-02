@@ -9,7 +9,7 @@ Obstaclerun = {
       this.obstacles.push(this.createObstacle());
     }
     this.startbutton.onclick = function() {
-      Obstaclerun.animateObstacles
+      Obstaclerun.animateObstacles ();
     }
     this.renderObstacles();
   },
