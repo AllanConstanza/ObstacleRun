@@ -43,6 +43,7 @@ body {
 .button {
     margin: auto;
     padding: 10px;
+    background-color: rgb(0, 128, 248);
     position: absolute;
 }
 
