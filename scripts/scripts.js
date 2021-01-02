@@ -2,14 +2,15 @@ Obstaclerun = {
   container: document.getElementById("obstaclerun_container"),
   obstacles: [],
   playerImages: [],
+  startbutton: document.getElementById("start"), 
 
   init: function () {
     for (let i = 0; i < 6; i++) {
       this.obstacles.push(this.createObstacle());
     }
-    //Will have to change startSim to startGame later
-    this.startSimulation();
-
+    this.startbutton.onclick = function() {
+      Obstaclerun.animateObstacles
+    }
     this.renderObstacles();
   },
   createObstacle: function () {
@@ -28,9 +29,9 @@ Obstaclerun = {
   },
 
  //will have to change this later
-     startSimulation: function () {
-    this.simulation = window.setInterval(this.animateObstacles.bind(Obstaclerun), 30);
-  },
+     startGame: function () {
+  
+  }, 
 
   animateObstacles: function () {
     this.bounceObstacles();
