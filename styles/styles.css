@@ -22,24 +22,29 @@ body {
 }
 
 #obstaclerun_container {
+    display: relative;
+    justify-content: center;
     width: 895px;
     height: 580px;
-    border: 1px solid rgb(201, 156, 98);
+    border: 1px solid rgb(190, 54, 54);
     border-radius: 10px;
     position: relative;
     margin: auto;
-   
-
 }
   .obstacle {
-    height: 30px;
-    width: 30px;
+    height: 10px;
+    width: 10px;
     background: url(https://thumbs.dreamstime.com/b/shark-design-blue-background-shark-design-blue-background-black-combination-172537215.jpg);
     position: absolute;
     top: 0px;
     left: 0px;
 }
 
+.button {
+    margin: auto;
+    padding: 10px;
+    position: absolute;
+}
 
 
 
