@@ -40,6 +40,15 @@ body {
     left: 0px;
 }
 
+  .player {
+      height: 50px;
+      width: 60px; 
+      background: url(https://grid.gograph.com/cute-fish-element-eps-illustration_gg57846403.jpg);
+      position: absolute;
+      top: 0px;
+      left: 0px; 
+     }
+
 .button {
     margin: auto;
     padding: 10px;

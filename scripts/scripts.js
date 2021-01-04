@@ -1,18 +1,23 @@
 Obstaclerun = {
   container: document.getElementById("obstaclerun_container"),
   obstacles: [],
-  playerImages: [],
+  players: [],
   startbutton: document.getElementById("start"),
   simulation: undefined,
 
 
   init: function () {
-    for (let i = 0; i < 6; i++) {
+    for (let i = 0; i < 12; i++) {
       this.obstacles.push(this.createObstacle());
     }
     Obstaclerun.renderObstacles();
 
-    this.startbutton.onclick = function() {
+    for (let i = 0; i < 1; i++) {
+      this.players.push(this.createPlayer());
+    }
+    Obstaclerun.renderPlayer();
+
+    this.startbutton.onclick = function () {
       Obstaclerun.startGame();
     }
 
@@ -22,7 +27,7 @@ Obstaclerun = {
     obstaclediv.className = "obstacle";
     this.container.append(obstaclediv);
     let obstacle = {
-      x_pos: Math.random() * 400,
+      x_pos: Math.random() * 800,
       y_pos: Math.random() * 400,
       x_velocity: Math.random() * 10 - 1,
       y_velocity: Math.random() * 10 - 1,
@@ -37,7 +42,7 @@ Obstaclerun = {
     this.simulation = window.setInterval(this.animateObstacles.bind(Obstaclerun), 30);
   },
 
-  
+
 
   animateObstacles: function () {
     this.bounceObstacles();
@@ -82,14 +87,38 @@ Obstaclerun = {
 
   },
 
+  // Creating Player here
 
 
-  /**  render:function() {
-     for(let i = 0; i <1; i++){
-       this.player[i].element.style.top = this.people[i].y_pos + "px"
-       this.player[i].element.style.left = this.people[i].x_pos + "px"
-   } 
- },**/
+  createPlayer: function () {
+    let playerdiv = document.createElement("div");
+    playerdiv.className = "player";
+    this.container.append(playerdiv);
+    let player = {
+      x_pos:  200,
+      y_pos:  400,
+      radius: 5,
+      element: playerdiv
+    }
+    return player;
+  },
+
+  animatePlayer: function () {
+    this.movePlayer();
+    this.renderPlayer();
+  },
+
+  movePlayer: function () {
+
+  },
+
+  renderPlayer: function () {
+    for (i = 0; i < this.players.length; i++) {
+      this.players[i].element.style.top = this.players[i].y_pos + "px";
+      this.players[i].element.style.left = this.players[i].x_pos + "px";
+    }
+  },
+
 }
 
 Obstaclerun.init();
