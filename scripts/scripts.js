@@ -48,6 +48,7 @@ Obstaclerun = {
     this.bounceObstacles();
     this.moveObstacles();
     this.renderObstacles();
+    this.checkforCollision();
   },
 
   bounceObstacles: function () {
@@ -87,16 +88,14 @@ Obstaclerun = {
 
   },
 
-  // Creating Player here
-
 
   createPlayer: function () {
     let playerdiv = document.createElement("div");
     playerdiv.className = "player";
     this.container.append(playerdiv);
     let player = {
-      x_pos:  200,
-      y_pos:  400,
+      x_pos: 200,
+      y_pos: 400,
       radius: 5,
       element: playerdiv
     }
@@ -106,10 +105,7 @@ Obstaclerun = {
   animatePlayer: function () {
     this.movePlayer();
     this.renderPlayer();
-  },
-
-  movePlayer: function () {
-
+    this.checkforCollision();
   },
 
   renderPlayer: function () {
@@ -119,13 +115,34 @@ Obstaclerun = {
     }
   },
 
-  movePlayer:function () {
-    window.onkeydown = function(event){
+  checkforCollision: function () {
+    for (let i = 0; i < this.obstacles.length; i++) {
+      let obstacle = this.obstacles[i];
+
+
+      let dx = person.x_pos - this.people[j].x_pos;
+      let dy = person.y_pos - this.people[j].y_pos;
+      let distance = Math.sqrt(dx * dx + dy * dy);
+
+
+      if (distance < person.radius + this.people[j].radius) {
+
+        console.log("Collision detected")
+
+        this.people[j].infected = true;
+        this.people[j].infectionTimer = 4000 / 30
+        this.people[j].color = "red";
+      }
+    }
+  },
+
+  movePlayer: function () {
+    window.onkeydown = function (event) {
 
     }
 
-    window.onkeyup = function (event){
-      
+    window.onkeyup = function (event) {
+
     }
   }
 
