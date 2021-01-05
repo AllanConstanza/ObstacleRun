@@ -119,6 +119,16 @@ Obstaclerun = {
     }
   },
 
+  movePlayer:function () {
+    window.onkeydown = function(event){
+
+    }
+
+    window.onkeyup = function (event){
+      
+    }
+  }
+
 }
 
 Obstaclerun.init();
