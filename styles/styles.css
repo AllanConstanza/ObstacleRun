@@ -30,6 +30,7 @@ body {
     border-radius: 10px;
     position: relative;
     margin: auto;
+    text-align: center;
 }
   .obstacle {
     height: 10px;
@@ -53,6 +54,7 @@ body {
     margin: auto;
     padding: 10px;
     position: absolute;
+    display: inline-block;
 }
 
 

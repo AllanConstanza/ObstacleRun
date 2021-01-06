@@ -120,18 +120,14 @@ Obstaclerun = {
       let obstacle = this.obstacles[i];
 
 
-      let dx = person.x_pos - this.people[j].x_pos;
-      let dy = person.y_pos - this.people[j].y_pos;
+      let dx = obstacle.x_pos - this.obstacles[i].x_pos;
+      let dy = obstacle.y_pos - this.obstacles[i].y_pos;
       let distance = Math.sqrt(dx * dx + dy * dy);
 
 
-      if (distance < person.radius + this.people[j].radius) {
+      if (distance < obstacle.radius + this.obstacles[i].radius) {
 
         console.log("Collision detected")
-
-        this.people[j].infected = true;
-        this.people[j].infectionTimer = 4000 / 30
-        this.people[j].color = "red";
       }
     }
   },
