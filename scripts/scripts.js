@@ -7,10 +7,6 @@ Obstaclerun = {
 
 
   init: function () {
-    for (let i = 0; i < 12; i++) {
-      this.obstacles.push(this.createObstacle());
-    }
-    Obstaclerun.renderObstacles();
 
     for (let i = 0; i < 1; i++) {
       this.players.push(this.createPlayer());
@@ -39,6 +35,10 @@ Obstaclerun = {
 
 
   startGame: function () {
+    for (let i = 0; i < 12; i++) {
+      this.obstacles.push(this.createObstacle());
+    }
+    Obstaclerun.renderObstacles();
     this.simulation = window.setInterval(this.animateObstacles.bind(Obstaclerun), 30);
   },
 

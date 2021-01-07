@@ -30,22 +30,23 @@ body {
     border-radius: 10px;
     position: relative;
     margin: auto;
-    text-align: center;
+    
 }
   .obstacle {
-    height: 30px;
-    width: 30px;
+    height: 60px;
+    width: 60px;
     background: url(https://thumbs.dreamstime.com/b/shark-design-blue-background-shark-design-blue-background-black-combination-172537215.jpg);
-    background-size: 30px 30px;
+    background-size: 60px 60px;
     position: absolute;
     top: 0px;
     left: 0px;
 }
 
   .player {
-      height: 50px;
-      width: 60px; 
-      background: url(https://grid.gograph.com/cute-fish-element-eps-illustration_gg57846403.jpg);
+      height: 30px;
+      width: 30px; 
+      background: url(https://www.jing.fm/clipimg/detail/1-15126_clown-fish-clipart-cartoon-fish.png);
+      background-size: 30px 30px;
       position: absolute;
       top: 0px;
       left: 0px; 
@@ -53,9 +54,12 @@ body {
 
 .button {
     margin: auto;
-    padding: 10px;
+    padding: 30px;
     position: absolute;
-    display: inline-block;
+    top: 5%;
+    left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
 
