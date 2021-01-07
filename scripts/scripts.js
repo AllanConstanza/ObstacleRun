@@ -4,6 +4,7 @@ Obstaclerun = {
   players: [],
   startbutton: document.getElementById("start"),
   simulation: undefined,
+  gameStart: null, 
 
 
   init: function () {
@@ -40,6 +41,14 @@ Obstaclerun = {
     }
     Obstaclerun.renderObstacles();
     this.simulation = window.setInterval(this.animateObstacles.bind(Obstaclerun), 30);
+
+    gameStart = true;
+  },
+
+  removestartButton: function () {
+    if (gameStart = true) {
+      remove
+    }
   },
 
 
