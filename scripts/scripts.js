@@ -46,13 +46,15 @@ Obstaclerun = {
     Obstaclerun.renderTreasures();
     Obstaclerun.renderObstacles();
     this.simulation = window.setInterval(this.animateObstacles.bind(Obstaclerun), 30);
+    this.simulation = window.setInterval(this.animateTreasures.bind(Obstaclerun), 30);
+
 
     gameStart = true;
   },
 
   removestartButton: function () {
     if (gameStart = true) {
-      remove
+      remove //start button 
     }
   },
 
@@ -61,7 +63,6 @@ Obstaclerun = {
   animateObstacles: function () {
     this.bounceObstacles();
     this.moveObstacles();
-    this.moveTreasures();
     this.renderObstacles();
     this.checkforCollision();
   },
@@ -156,6 +157,9 @@ Obstaclerun = {
 
     }
   },
+  
+  
+  // Creating the treasure chest 
   createTreasure: function () {
     let treasurediv = document.createElement("div");
     treasurediv.className = "treasure";
@@ -207,8 +211,13 @@ Obstaclerun = {
     }
   },
 
+  checkforWin: function () {
+    
+  },
+
   animateTreasures: function () {
     this.bounceTreasures();
+    this.moveTreasures();
     this.renderTreasures();
     this.checkforWin();
   },
