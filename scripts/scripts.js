@@ -37,7 +37,7 @@ Obstaclerun = {
 
 
   startGame: function () {
-    for (let i = 0; i < 12; i++) {
+    for (let i = 0; i < 8; i++) {
       this.obstacles.push(this.createObstacle());
     }
     for (let i = 0; i < 1; i++){
@@ -167,8 +167,8 @@ Obstaclerun = {
     let treasure = {
       x_pos:  800,
       y_pos:  400,
-      x_velocity: Math.random() * 10 - 1,
-      y_velocity: Math.random() * 10 - 1,
+      x_velocity: Math.random() * 15,
+      y_velocity: Math.random() * 15,
       radius: 30,
       element: treasurediv
     }
@@ -212,7 +212,7 @@ Obstaclerun = {
   },
 
   checkforWin: function () {
-    
+
   },
 
   animateTreasures: function () {
