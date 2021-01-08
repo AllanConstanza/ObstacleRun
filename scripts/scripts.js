@@ -2,9 +2,10 @@ Obstaclerun = {
   container: document.getElementById("obstaclerun_container"),
   obstacles: [],
   players: [],
+  treasures: [],
   startbutton: document.getElementById("start"),
   simulation: undefined,
-  gameStart: null, 
+  gameStart: null,
 
 
   init: function () {
@@ -39,6 +40,10 @@ Obstaclerun = {
     for (let i = 0; i < 12; i++) {
       this.obstacles.push(this.createObstacle());
     }
+    for (let i = 0; i < 1; i++){
+      this.treasures.push(this.createTreasure());
+    }
+    Obstaclerun.renderTreasures();
     Obstaclerun.renderObstacles();
     this.simulation = window.setInterval(this.animateObstacles.bind(Obstaclerun), 30);
 
@@ -56,6 +61,7 @@ Obstaclerun = {
   animateObstacles: function () {
     this.bounceObstacles();
     this.moveObstacles();
+    this.moveTreasures();
     this.renderObstacles();
     this.checkforCollision();
   },
@@ -149,7 +155,63 @@ Obstaclerun = {
     window.onkeyup = function (event) {
 
     }
-  }
+  },
+  createTreasure: function () {
+    let treasurediv = document.createElement("div");
+    treasurediv.className = "treasure";
+    this.container.append(treasurediv);
+    let treasure = {
+      x_pos:  800,
+      y_pos:  400,
+      x_velocity: Math.random() * 10 - 1,
+      y_velocity: Math.random() * 10 - 1,
+      radius: 30,
+      element: treasurediv
+    }
+    return treasure;
+  },
+
+  moveTreasures: function () {
+    for (i = 0; i < this.treasures.length; i++) {
+      this.treasures[i].x_pos = this.treasures[i].x_pos + this.treasures[i].x_velocity;
+      this.treasures[i].y_pos = this.treasures[i].y_pos + this.treasures[i].y_velocity;
+    }
+  },
+
+  renderTreasures: function (){
+    for (i = 0; i < this.treasures.length; i++) {
+      this.treasures[i].element.style.top = this.treasures[i].y_pos + "px";
+      this.treasures[i].element.style.left = this.treasures[i].x_pos + "px";
+    }
+  },
+
+  bounceTreasures: function (){
+    for (i = 0; i < this.treasures.length; i++) {
+      if (this.treasures[i].x_pos + (this.treasures[i].radius * 2) > 895) {
+        this.treasures[i].x_pos = 895 - this.treasures[i].radius * 2;
+        this.treasures[i].x_velocity = this.treasures[i].x_velocity * -1;
+      } else if (this.treasures[i].x_pos < 0) {
+        this.treasures[i].x_pos = 0;
+        this.treasures[i].x_velocity = this.treasures[i].x_velocity * -1;
+      }
+
+
+      if (this.treasures[i].y_pos + (this.treasures[i].radius * 2) > 580) {
+        this.treasures[i].y_pos = 580 - this.treasures[i].radius * 2;
+        this.treasures[i].y_velocity = this.treasures[i].y_velocity * -1;
+      } else if (this.treasures[i].y_pos < 0) {
+        this.treasures[i].y_pos = 0;
+        this.treasures[i].y_velocity = this.treasures[i].y_velocity * -1;
+      }
+
+    }
+  },
+
+  animateTreasures: function () {
+    this.bounceTreasures();
+    this.renderTreasures();
+    this.checkforWin();
+  },
 
 }
 

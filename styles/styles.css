@@ -45,7 +45,7 @@ body {
   .player {
       height: 30px;
       width: 30px; 
-      background: url(https://www.jing.fm/clipimg/detail/1-15126_clown-fish-clipart-cartoon-fish.png);
+      background: url(https://www.clipartmax.com/png/middle/248-2482386_cute-red-fish-clipart-transparent-background-clip-art-fish.png);
       background-size: 30px 30px;
       position: absolute;
       top: 0px;
@@ -61,6 +61,17 @@ body {
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
+
+.treasure {
+    height: 60px;
+    width: 60px; 
+    background: url(https://i.pinimg.com/originals/77/6a/ee/776aee01f74dfd22f80c18109c3df1b2.png);
+    background-size: 60px 60px;
+    position: absolute;
+    top: 0px;
+    left: 0px; 
+   }
+
 
 
 
