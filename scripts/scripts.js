@@ -19,6 +19,28 @@ Obstaclerun = {
       Obstaclerun.startGame();
     }
 
+
+    //Moving player 
+    window.onkeydown = function (event) {
+      //up arrow
+      if (event.keyCode == 38) {
+        console.log(event.keyCode)
+  
+
+      } else if(event.keyCode == 37) {
+      
+
+      } else if(event.keyCode == 39) {
+      
+
+      }
+      else if(event.keyCode == 40) {
+      
+
+      }
+    } .bind(Obstaclerun)
+
+
   },
   createObstacle: function () {
     let obstaclediv = document.createElement("div");
@@ -33,6 +55,7 @@ Obstaclerun = {
       element: obstaclediv
     }
     return obstacle;
+
   },
 
 
@@ -40,7 +63,7 @@ Obstaclerun = {
     for (let i = 0; i < 8; i++) {
       this.obstacles.push(this.createObstacle());
     }
-    for (let i = 0; i < 1; i++){
+    for (let i = 0; i < 1; i++) {
       this.treasures.push(this.createTreasure());
     }
     Obstaclerun.renderTreasures();
@@ -64,7 +87,6 @@ Obstaclerun = {
     this.bounceObstacles();
     this.moveObstacles();
     this.renderObstacles();
-    this.checkforCollision();
   },
 
   bounceObstacles: function () {
@@ -105,6 +127,12 @@ Obstaclerun = {
   },
 
 
+
+
+
+
+
+
   createPlayer: function () {
     let playerdiv = document.createElement("div");
     playerdiv.className = "player";
@@ -119,7 +147,6 @@ Obstaclerun = {
   },
 
   animatePlayer: function () {
-    this.movePlayer();
     this.renderPlayer();
     this.checkforCollision();
   },
@@ -132,41 +159,19 @@ Obstaclerun = {
   },
 
   checkforCollision: function () {
-    for (let i = 0; i < this.obstacles.length; i++) {
-      let obstacle = this.obstacles[i];
 
-
-      let dx = obstacle.x_pos - this.obstacles[i].x_pos;
-      let dy = obstacle.y_pos - this.obstacles[i].y_pos;
-      let distance = Math.sqrt(dx * dx + dy * dy);
-
-
-      if (distance < obstacle.radius + this.obstacles[i].radius) {
-
-        console.log("Collision detected")
-      }
-    }
   },
 
-  movePlayer: function () {
-    window.onkeydown = function (event) {
 
-    }
 
-    window.onkeyup = function (event) {
-
-    }
-  },
-  
-  
   // Creating the treasure chest 
   createTreasure: function () {
     let treasurediv = document.createElement("div");
     treasurediv.className = "treasure";
     this.container.append(treasurediv);
     let treasure = {
-      x_pos:  800,
-      y_pos:  400,
+      x_pos: 800,
+      y_pos: 400,
       x_velocity: Math.random() * 15,
       y_velocity: Math.random() * 15,
       radius: 30,
@@ -182,14 +187,14 @@ Obstaclerun = {
     }
   },
 
-  renderTreasures: function (){
+  renderTreasures: function () {
     for (i = 0; i < this.treasures.length; i++) {
       this.treasures[i].element.style.top = this.treasures[i].y_pos + "px";
       this.treasures[i].element.style.left = this.treasures[i].x_pos + "px";
     }
   },
 
-  bounceTreasures: function (){
+  bounceTreasures: function () {
     for (i = 0; i < this.treasures.length; i++) {
       if (this.treasures[i].x_pos + (this.treasures[i].radius * 2) > 895) {
         this.treasures[i].x_pos = 895 - this.treasures[i].radius * 2;
