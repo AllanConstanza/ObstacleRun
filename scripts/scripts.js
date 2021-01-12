@@ -5,7 +5,7 @@ Obstaclerun = {
   treasures: [],
   startbutton: document.getElementById("start"),
   simulation: undefined,
-  gameStart: null,
+
 
 
   init: function () {
@@ -21,11 +21,12 @@ Obstaclerun = {
 
 
     //Moving player 
+
     window.onkeydown = function (event) {
-      //up arrow
-      if (event.keyCode == 38) {
-        console.log(event.keyCode)
   
+      console.log(event.keyCode)
+      if (event.keyCode == 38) {
+         this.moveUp()
 
       } else if(event.keyCode == 37) {
       
@@ -39,6 +40,9 @@ Obstaclerun = {
 
       }
     } .bind(Obstaclerun)
+
+
+
 
 
   },
@@ -72,13 +76,11 @@ Obstaclerun = {
     this.simulation = window.setInterval(this.animateTreasures.bind(Obstaclerun), 30);
 
 
-    gameStart = true;
   },
 
   removestartButton: function () {
-    if (gameStart = true) {
-      remove //start button 
-    }
+   
+  
   },
 
 
@@ -150,6 +152,12 @@ Obstaclerun = {
     this.renderPlayer();
     this.checkforCollision();
   },
+
+  moveUp:function (){
+    for (i = 0; i < this.players.length; i++) {
+    this.players[i].element.style.top=parseInt(this.players[i].element.style.top)-8 +'px';
+    }
+	},
 
   renderPlayer: function () {
     for (i = 0; i < this.players.length; i++) {
