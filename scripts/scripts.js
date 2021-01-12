@@ -8,6 +8,7 @@ Obstaclerun = {
 
 
 
+
   init: function () {
 
     for (let i = 0; i < 1; i++) {
@@ -16,6 +17,7 @@ Obstaclerun = {
     Obstaclerun.renderPlayer();
 
     this.startbutton.onclick = function () {
+
       Obstaclerun.startGame();
     }
 
@@ -75,13 +77,12 @@ Obstaclerun = {
     this.simulation = window.setInterval(this.animateObstacles.bind(Obstaclerun), 30);
     this.simulation = window.setInterval(this.animateTreasures.bind(Obstaclerun), 30);
 
+    var button = document.getElementById('start');
+    button.remove();
 
   },
 
-  removestartButton: function () {
-   
-  
-  },
+ 
 
 
 
