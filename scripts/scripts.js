@@ -29,14 +29,14 @@ Obstaclerun = {
          this.moveUp()
 
       } else if(event.keyCode == 37) {
-      
+      this.moveLeft()
 
       } else if(event.keyCode == 39) {
-      
+        this.moveRight()
 
       }
       else if(event.keyCode == 40) {
-      
+        this.moveDown()
 
       }
     } .bind(Obstaclerun)
@@ -157,7 +157,24 @@ Obstaclerun = {
     for (i = 0; i < this.players.length; i++) {
     this.players[i].element.style.top=parseInt(this.players[i].element.style.top)-8 +'px';
     }
-	},
+  },
+  
+  moveRight: function(){
+    for (i = 0; i < this.players.length; i++) {
+      this.players[i].element.style.left = parseInt(this.players[i].element.style.left) +8 + 'px';
+    }
+  },
+  moveLeft: function(){
+    for (i = 0; i < this.players.length; i++) {
+      this.players[i].element.style.left = parseInt(this.players[i].element.style.left) -8 + 'px';
+    }
+  }, 
+
+  moveDown: function(){
+    for (i = 0; i < this.players.length; i++) {
+      this.players[i].element.style.top = parseInt(this.players[i].element.style.top) +8 + 'px';
+    }
+  }, 
 
   renderPlayer: function () {
     for (i = 0; i < this.players.length; i++) {
