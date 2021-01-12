@@ -140,8 +140,8 @@ Obstaclerun = {
     playerdiv.className = "player";
     this.container.append(playerdiv);
     let player = {
-      x_pos: 200,
-      y_pos: 400,
+      x_pos: 0,
+      y_pos: 0,
       radius: 5,
       element: playerdiv
     }
@@ -195,8 +195,8 @@ Obstaclerun = {
     treasurediv.className = "treasure";
     this.container.append(treasurediv);
     let treasure = {
-      x_pos: 800,
-      y_pos: 400,
+      x_pos: 700,
+      y_pos: 490,
       x_velocity: Math.random() * 15,
       y_velocity: Math.random() * 15,
       radius: 30,
@@ -205,12 +205,12 @@ Obstaclerun = {
     return treasure;
   },
 
-  moveTreasures: function () {
+ /**  moveTreasures: function () {
     for (i = 0; i < this.treasures.length; i++) {
       this.treasures[i].x_pos = this.treasures[i].x_pos + this.treasures[i].x_velocity;
       this.treasures[i].y_pos = this.treasures[i].y_pos + this.treasures[i].y_velocity;
     }
-  },
+  }, **/
 
   renderTreasures: function () {
     for (i = 0; i < this.treasures.length; i++) {
@@ -219,7 +219,7 @@ Obstaclerun = {
     }
   },
 
-  bounceTreasures: function () {
+ /**  bounceTreasures: function () {
     for (i = 0; i < this.treasures.length; i++) {
       if (this.treasures[i].x_pos + (this.treasures[i].radius * 2) > 895) {
         this.treasures[i].x_pos = 895 - this.treasures[i].radius * 2;
@@ -239,15 +239,15 @@ Obstaclerun = {
       }
 
     }
-  },
+  }, **/
 
   checkforWin: function () {
 
   },
 
   animateTreasures: function () {
-    this.bounceTreasures();
-    this.moveTreasures();
+  //  this.bounceTreasures();
+  //  this.moveTreasures();
     this.renderTreasures();
     this.checkforWin();
   },
