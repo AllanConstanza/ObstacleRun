@@ -155,24 +155,24 @@ Obstaclerun = {
 
   moveUp:function (){
     for (i = 0; i < this.players.length; i++) {
-    this.players[i].element.style.top=parseInt(this.players[i].element.style.top)-8 +'px';
+    this.players[i].element.style.top=parseInt(this.players[i].element.style.top)-20 +'px';
     }
   },
   
   moveRight: function(){
     for (i = 0; i < this.players.length; i++) {
-      this.players[i].element.style.left = parseInt(this.players[i].element.style.left) +8 + 'px';
+      this.players[i].element.style.left = parseInt(this.players[i].element.style.left) +20 + 'px';
     }
   },
   moveLeft: function(){
     for (i = 0; i < this.players.length; i++) {
-      this.players[i].element.style.left = parseInt(this.players[i].element.style.left) -8 + 'px';
+      this.players[i].element.style.left = parseInt(this.players[i].element.style.left) -20 + 'px';
     }
   }, 
 
   moveDown: function(){
     for (i = 0; i < this.players.length; i++) {
-      this.players[i].element.style.top = parseInt(this.players[i].element.style.top) +8 + 'px';
+      this.players[i].element.style.top = parseInt(this.players[i].element.style.top) +20 + 'px';
     }
   }, 
 
