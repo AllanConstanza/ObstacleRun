@@ -134,16 +134,21 @@ Obstaclerun = {
 
   checkforCollision: function () {
     for (let i = 0; i < this.obstacles.length; i++) {
+      let shark = this.obstacles[i]
+      for (j = 0; j < this.players.length; j++) {
 
-      let dx = this.players[i].x_pos - this.obstacles[i].x_pos;
-      let dy = this.players[i].y_pos - this.obstacles[i].y_pos;
+      let dx = shark.x_pos - this.players[j].x_pos ;
+      let dy = shark.y_pos-this.players[j].y_pos;
       let distance = Math.sqrt(dx * dx + dy * dy);
 
 
-      if (distance < this.players[i].radius + this.obstacles[i].radius) {
+      if (distance < this.players[j].radius + shark.radius) {
 
         console.log("Collision detected")
+        shark.x_velocity = 0;
+        shark.y_velocity = 0;
       }
+    }
 
 
     }
@@ -161,8 +166,8 @@ Obstaclerun = {
     playerdiv.className = "player";
     this.container.append(playerdiv);
     let player = {
-      x_pos: 0,
-      y_pos: 0,
+      x_pos: 100,
+      y_pos: 100,
       radius: 5,
       element: playerdiv
     }
