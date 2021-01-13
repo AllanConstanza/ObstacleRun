@@ -14,6 +14,7 @@ Obstaclerun = {
     for (let i = 0; i < 1; i++) {
       this.players.push(this.createPlayer());
     }
+
     Obstaclerun.renderPlayer();
 
     this.startbutton.onclick = function () {
@@ -25,23 +26,23 @@ Obstaclerun = {
     //Moving player 
 
     window.onkeydown = function (event) {
-  
+
       console.log(event.keyCode)
       if (event.keyCode == 38) {
-         this.moveUp()
+        this.moveUp()
 
-      } else if(event.keyCode == 37) {
-      this.moveLeft()
+      } else if (event.keyCode == 37) {
+        this.moveLeft()
 
-      } else if(event.keyCode == 39) {
+      } else if (event.keyCode == 39) {
         this.moveRight()
 
       }
-      else if(event.keyCode == 40) {
+      else if (event.keyCode == 40) {
         this.moveDown()
 
       }
-    } .bind(Obstaclerun)
+    }.bind(Obstaclerun)
 
 
 
@@ -82,7 +83,7 @@ Obstaclerun = {
 
   },
 
- 
+
 
 
 
@@ -90,6 +91,8 @@ Obstaclerun = {
     this.bounceObstacles();
     this.moveObstacles();
     this.renderObstacles();
+    this.checkforCollision();
+
   },
 
   bounceObstacles: function () {
@@ -129,6 +132,23 @@ Obstaclerun = {
 
   },
 
+  checkforCollision: function () {
+    for (let i = 0; i < this.obstacles.length; i++) {
+
+      let dx = this.players[i].x_pos - this.obstacles[i].x_pos;
+      let dy = this.players[i].y_pos - this.obstacles[i].y_pos;
+      let distance = Math.sqrt(dx * dx + dy * dy);
+
+
+      if (distance < this.players[i].radius + this.obstacles[i].radius) {
+
+        console.log("Collision detected")
+      }
+
+
+    }
+  },
+
 
 
 
@@ -151,31 +171,30 @@ Obstaclerun = {
 
   animatePlayer: function () {
     this.renderPlayer();
-    this.checkforCollision();
   },
 
-  moveUp:function (){
+  moveUp: function () {
     for (i = 0; i < this.players.length; i++) {
-    this.players[i].element.style.top=parseInt(this.players[i].element.style.top)-20 +'px';
+      this.players[i].element.style.top = parseInt(this.players[i].element.style.top) - 20 + 'px';
     }
   },
-  
-  moveRight: function(){
-    for (i = 0; i < this.players.length; i++) {
-      this.players[i].element.style.left = parseInt(this.players[i].element.style.left) +20 + 'px';
-    }
-  },
-  moveLeft: function(){
-    for (i = 0; i < this.players.length; i++) {
-      this.players[i].element.style.left = parseInt(this.players[i].element.style.left) -20 + 'px';
-    }
-  }, 
 
-  moveDown: function(){
+  moveRight: function () {
     for (i = 0; i < this.players.length; i++) {
-      this.players[i].element.style.top = parseInt(this.players[i].element.style.top) +20 + 'px';
+      this.players[i].element.style.left = parseInt(this.players[i].element.style.left) + 20 + 'px';
     }
-  }, 
+  },
+  moveLeft: function () {
+    for (i = 0; i < this.players.length; i++) {
+      this.players[i].element.style.left = parseInt(this.players[i].element.style.left) - 20 + 'px';
+    }
+  },
+
+  moveDown: function () {
+    for (i = 0; i < this.players.length; i++) {
+      this.players[i].element.style.top = parseInt(this.players[i].element.style.top) + 20 + 'px';
+    }
+  },
 
   renderPlayer: function () {
     for (i = 0; i < this.players.length; i++) {
@@ -184,9 +203,7 @@ Obstaclerun = {
     }
   },
 
-  checkforCollision: function () {
 
-  },
 
 
 
@@ -206,12 +223,12 @@ Obstaclerun = {
     return treasure;
   },
 
- /**  moveTreasures: function () {
-    for (i = 0; i < this.treasures.length; i++) {
-      this.treasures[i].x_pos = this.treasures[i].x_pos + this.treasures[i].x_velocity;
-      this.treasures[i].y_pos = this.treasures[i].y_pos + this.treasures[i].y_velocity;
-    }
-  }, **/
+  /**  moveTreasures: function () {
+     for (i = 0; i < this.treasures.length; i++) {
+       this.treasures[i].x_pos = this.treasures[i].x_pos + this.treasures[i].x_velocity;
+       this.treasures[i].y_pos = this.treasures[i].y_pos + this.treasures[i].y_velocity;
+     }
+   }, **/
 
   renderTreasures: function () {
     for (i = 0; i < this.treasures.length; i++) {
@@ -220,35 +237,35 @@ Obstaclerun = {
     }
   },
 
- /**  bounceTreasures: function () {
-    for (i = 0; i < this.treasures.length; i++) {
-      if (this.treasures[i].x_pos + (this.treasures[i].radius * 2) > 895) {
-        this.treasures[i].x_pos = 895 - this.treasures[i].radius * 2;
-        this.treasures[i].x_velocity = this.treasures[i].x_velocity * -1;
-      } else if (this.treasures[i].x_pos < 0) {
-        this.treasures[i].x_pos = 0;
-        this.treasures[i].x_velocity = this.treasures[i].x_velocity * -1;
-      }
-
-
-      if (this.treasures[i].y_pos + (this.treasures[i].radius * 2) > 580) {
-        this.treasures[i].y_pos = 580 - this.treasures[i].radius * 2;
-        this.treasures[i].y_velocity = this.treasures[i].y_velocity * -1;
-      } else if (this.treasures[i].y_pos < 0) {
-        this.treasures[i].y_pos = 0;
-        this.treasures[i].y_velocity = this.treasures[i].y_velocity * -1;
-      }
-
-    }
-  }, **/
+  /**  bounceTreasures: function () {
+     for (i = 0; i < this.treasures.length; i++) {
+       if (this.treasures[i].x_pos + (this.treasures[i].radius * 2) > 895) {
+         this.treasures[i].x_pos = 895 - this.treasures[i].radius * 2;
+         this.treasures[i].x_velocity = this.treasures[i].x_velocity * -1;
+       } else if (this.treasures[i].x_pos < 0) {
+         this.treasures[i].x_pos = 0;
+         this.treasures[i].x_velocity = this.treasures[i].x_velocity * -1;
+       }
+ 
+ 
+       if (this.treasures[i].y_pos + (this.treasures[i].radius * 2) > 580) {
+         this.treasures[i].y_pos = 580 - this.treasures[i].radius * 2;
+         this.treasures[i].y_velocity = this.treasures[i].y_velocity * -1;
+       } else if (this.treasures[i].y_pos < 0) {
+         this.treasures[i].y_pos = 0;
+         this.treasures[i].y_velocity = this.treasures[i].y_velocity * -1;
+       }
+ 
+     }
+   }, **/
 
   checkforWin: function () {
 
   },
 
   animateTreasures: function () {
-  //  this.bounceTreasures();
-  //  this.moveTreasures();
+    //  this.bounceTreasures();
+    //  this.moveTreasures();
     this.renderTreasures();
     this.checkforWin();
   },
