@@ -22,6 +22,14 @@ Obstaclerun = {
       Obstaclerun.startGame();
     }
 
+    let Tryagainbutton = document.getElementsByClassName('restartbutton');
+
+    Tryagainbutton.onclick = function () {
+      Obstaclerun.restartGame();
+    }
+
+
+
 
     //Moving player 
 
@@ -133,29 +141,53 @@ Obstaclerun = {
   },
 
   checkforCollision: function () {
+
     for (let i = 0; i < this.obstacles.length; i++) {
       let shark = this.obstacles[i]
       for (j = 0; j < this.players.length; j++) {
 
-      let dx = shark.x_pos - this.players[j].x_pos ;
-      let dy = shark.y_pos-this.players[j].y_pos;
-      let distance = Math.sqrt(dx * dx + dy * dy);
+        let dx = shark.x_pos - this.players[j].x_pos;
+        let dy = shark.y_pos - this.players[j].y_pos;
+        let distance = Math.sqrt(dx * dx + dy * dy);
 
 
-      if (distance < this.players[j].radius + shark.radius) {
 
-        console.log("Collision detected")
-        shark.x_velocity = 0;
-        shark.y_velocity = 0;
+
+        if (distance < this.players[j].radius + shark.radius) {
+
+          this.createRestartbutton()
+          console.log("Collision detected")
+          shark.x_velocity = 0;
+          shark.y_velocity = 0;
+
+
+
+
+
+        }
       }
-    }
 
 
     }
   },
 
 
+  createRestartbutton: function () {
+    var restart = document.createElement("BUTTON");
+    restart.className = "restartbutton";
+    restart.innerHTML = "Try again";
 
+
+    this.container.appendChild(restart);
+
+  },
+
+  restartGame: function () {
+    
+      this.obstacles.remove()
+    
+    
+  },
 
 
 
@@ -168,7 +200,7 @@ Obstaclerun = {
     let player = {
       x_pos: 100,
       y_pos: 100,
-      radius: 5,
+      radius: 1,
       element: playerdiv
     }
     return player;
@@ -228,12 +260,7 @@ Obstaclerun = {
     return treasure;
   },
 
-  /**  moveTreasures: function () {
-     for (i = 0; i < this.treasures.length; i++) {
-       this.treasures[i].x_pos = this.treasures[i].x_pos + this.treasures[i].x_velocity;
-       this.treasures[i].y_pos = this.treasures[i].y_pos + this.treasures[i].y_velocity;
-     }
-   }, **/
+
 
   renderTreasures: function () {
     for (i = 0; i < this.treasures.length; i++) {
@@ -242,27 +269,7 @@ Obstaclerun = {
     }
   },
 
-  /**  bounceTreasures: function () {
-     for (i = 0; i < this.treasures.length; i++) {
-       if (this.treasures[i].x_pos + (this.treasures[i].radius * 2) > 895) {
-         this.treasures[i].x_pos = 895 - this.treasures[i].radius * 2;
-         this.treasures[i].x_velocity = this.treasures[i].x_velocity * -1;
-       } else if (this.treasures[i].x_pos < 0) {
-         this.treasures[i].x_pos = 0;
-         this.treasures[i].x_velocity = this.treasures[i].x_velocity * -1;
-       }
- 
- 
-       if (this.treasures[i].y_pos + (this.treasures[i].radius * 2) > 580) {
-         this.treasures[i].y_pos = 580 - this.treasures[i].radius * 2;
-         this.treasures[i].y_velocity = this.treasures[i].y_velocity * -1;
-       } else if (this.treasures[i].y_pos < 0) {
-         this.treasures[i].y_pos = 0;
-         this.treasures[i].y_velocity = this.treasures[i].y_velocity * -1;
-       }
- 
-     }
-   }, **/
+
 
   checkforWin: function () {
 
