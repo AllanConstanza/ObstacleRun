@@ -15,6 +15,7 @@ Obstaclerun = {
       this.players.push(this.createPlayer());
     }
 
+
     Obstaclerun.renderPlayer();
 
     this.startbutton.onclick = function () {
@@ -32,7 +33,6 @@ Obstaclerun = {
 
 
     //Moving player 
-
     window.onkeydown = function (event) {
 
       console.log(event.keyCode)
@@ -146,10 +146,11 @@ Obstaclerun = {
       let shark = this.obstacles[i]
       for (j = 0; j < this.players.length; j++) {
 
-        let dx = shark.x_pos - this.players[j].x_pos;
+       let dx = shark.x_pos - this.players[j].x_pos;
         let dy = shark.y_pos - this.players[j].y_pos;
-        let distance = Math.sqrt(dx * dx + dy * dy);
+        let distance = Math.sqrt(dx * dx + dy * dy); 
 
+        
 
 
 
@@ -210,26 +211,42 @@ Obstaclerun = {
     this.renderPlayer();
   },
 
+
+
+
+
   moveUp: function () {
     for (i = 0; i < this.players.length; i++) {
       this.players[i].element.style.top = parseInt(this.players[i].element.style.top) - 20 + 'px';
+      this.players[i].y_pos = this.players[i].y_pos -20;
+
+
+    
     }
   },
 
   moveRight: function () {
     for (i = 0; i < this.players.length; i++) {
       this.players[i].element.style.left = parseInt(this.players[i].element.style.left) + 20 + 'px';
+      this.players[i].x_pos = this.players[i].x_pos +20;
+      
+
+
     }
   },
   moveLeft: function () {
     for (i = 0; i < this.players.length; i++) {
       this.players[i].element.style.left = parseInt(this.players[i].element.style.left) - 20 + 'px';
+      this.players[i].x_pos = this.players[i].x_pos -20;
+
     }
-  },
+  }, 
 
   moveDown: function () {
     for (i = 0; i < this.players.length; i++) {
       this.players[i].element.style.top = parseInt(this.players[i].element.style.top) + 20 + 'px';
+      this.players[i].y_pos = this.players[i].y_pos +20;
+
     }
   },
 
@@ -276,8 +293,6 @@ Obstaclerun = {
   },
 
   animateTreasures: function () {
-    //  this.bounceTreasures();
-    //  this.moveTreasures();
     this.renderTreasures();
     this.checkforWin();
   },
