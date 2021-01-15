@@ -8,7 +8,7 @@ Obstaclerun = {
 
 
 
-
+//Andi 
   init: function () {
 
     for (let i = 0; i < 1; i++) {
@@ -23,16 +23,10 @@ Obstaclerun = {
       Obstaclerun.startGame();
     }
 
-    let Tryagainbutton = document.getElementsByClassName('restartbutton');
-
-    Tryagainbutton.onclick = function () {
-      Obstaclerun.restartGame();
-    }
 
 
 
-
-    //Moving player 
+    //Allan 
     window.onkeydown = function (event) {
 
       console.log(event.keyCode)
@@ -56,7 +50,7 @@ Obstaclerun = {
 
 
 
-  },
+  }, //Andi
   createObstacle: function () {
     let obstaclediv = document.createElement("div");
     obstaclediv.className = "obstacle";
@@ -73,7 +67,7 @@ Obstaclerun = {
 
   },
 
-
+//Allan
   startGame: function () {
     for (let i = 0; i < 8; i++) {
       this.obstacles.push(this.createObstacle());
@@ -94,7 +88,7 @@ Obstaclerun = {
 
 
 
-
+//Andi 
   animateObstacles: function () {
     this.bounceObstacles();
     this.moveObstacles();
@@ -102,7 +96,7 @@ Obstaclerun = {
     this.checkforCollision();
 
   },
-
+//Andi
   bounceObstacles: function () {
     for (i = 0; i < this.obstacles.length; i++) {
       if (this.obstacles[i].x_pos + (this.obstacles[i].radius * 2) > 895) {
@@ -124,14 +118,14 @@ Obstaclerun = {
 
     }
   },
-
+//Andi
   moveObstacles: function () {
 
     for (i = 0; i < this.obstacles.length; i++) {
       this.obstacles[i].x_pos = this.obstacles[i].x_pos + this.obstacles[i].x_velocity;
       this.obstacles[i].y_pos = this.obstacles[i].y_pos + this.obstacles[i].y_velocity;
     }
-  },
+  },//Andi
   renderObstacles: function () {
     for (i = 0; i < this.obstacles.length; i++) {
       this.obstacles[i].element.style.top = this.obstacles[i].y_pos + "px";
@@ -139,7 +133,7 @@ Obstaclerun = {
     }
 
   },
-
+//Allan
   checkforCollision: function () {
 
     for (let i = 0; i < this.obstacles.length; i++) {
@@ -160,11 +154,6 @@ Obstaclerun = {
           console.log("Collision detected")
           shark.x_velocity = 0;
           shark.y_velocity = 0;
-
-
-
-
-
         }
       }
 
@@ -172,28 +161,33 @@ Obstaclerun = {
     }
   },
 
-
+//Allan
   createRestartbutton: function () {
-    var restart = document.createElement("BUTTON");
+    let restart = document.createElement("BUTTON");
     restart.className = "restartbutton";
     restart.innerHTML = "Try again";
 
 
     this.container.appendChild(restart);
 
-  },
+    restart.onclick = function (){
+     Obstaclerun.restartGame(); 
+      
+    }
 
+  },
+//Allan
   restartGame: function () {
-    
-      this.obstacles.remove()
-    
-    
+    console.log("Hello")
+    let restart = document.getElementsByClassName('BUTTON')
+    restart.remove();
+  
   },
 
 
 
 
-
+//Allan
   createPlayer: function () {
     let playerdiv = document.createElement("div");
     playerdiv.className = "player";
@@ -206,7 +200,7 @@ Obstaclerun = {
     }
     return player;
   },
-
+//Allan
   animatePlayer: function () {
     this.renderPlayer();
   },
@@ -214,7 +208,7 @@ Obstaclerun = {
 
 
 
-
+//Allan
   moveUp: function () {
     for (i = 0; i < this.players.length; i++) {
       this.players[i].element.style.top = parseInt(this.players[i].element.style.top) - 20 + 'px';
@@ -249,7 +243,7 @@ Obstaclerun = {
 
     }
   },
-
+//Allan
   renderPlayer: function () {
     for (i = 0; i < this.players.length; i++) {
       this.players[i].element.style.top = this.players[i].y_pos + "px";
@@ -260,8 +254,7 @@ Obstaclerun = {
 
 
 
-
-  // Creating the treasure chest 
+  //Andi
   createTreasure: function () {
     let treasurediv = document.createElement("div");
     treasurediv.className = "treasure";
@@ -278,7 +271,7 @@ Obstaclerun = {
   },
 
 
-
+  //Andi
   renderTreasures: function () {
     for (i = 0; i < this.treasures.length; i++) {
       this.treasures[i].element.style.top = this.treasures[i].y_pos + "px";
@@ -292,6 +285,7 @@ Obstaclerun = {
 
   },
 
+  //Andi
   animateTreasures: function () {
     this.renderTreasures();
     this.checkforWin();
