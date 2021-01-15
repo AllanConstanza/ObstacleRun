@@ -218,7 +218,7 @@ Obstaclerun = {
     
     }
   },
-
+//Allan
   moveRight: function () {
     for (i = 0; i < this.players.length; i++) {
       this.players[i].element.style.left = parseInt(this.players[i].element.style.left) + 20 + 'px';
